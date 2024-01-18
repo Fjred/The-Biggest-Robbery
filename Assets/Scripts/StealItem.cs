@@ -16,15 +16,19 @@ public class StealItem : MonoBehaviour
 
     public AudioSource grabItem;
 
+    public bool hasCard0;
+    public bool hasCard1;
+    public bool hasCard2;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Hit();
+            Steal();
         }
     }
 
-    public void Hit()
+    public void Steal()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -58,6 +62,33 @@ public class StealItem : MonoBehaviour
                     {
                         Debug.LogWarning("No available slots for the stolen item.");
                     }
+                }
+            }
+
+            if (hit.collider.CompareTag("Card"))
+            {
+                Destroy(hit.collider.gameObject);
+
+                Card itemScript = hit.collider.GetComponent<Card>();
+
+                if (itemScript != null)
+                {
+                    switch (itemScript.cardLevel)
+                    {
+                        case 0:
+                            hasCard0 = true;
+                            break;
+                        case 1:
+                            hasCard1 = true;
+                            break;
+
+                        case 2:
+                            hasCard2 = true;
+                            break;
+                        default:
+                            break;
+                    }
+
                 }
             }
         }

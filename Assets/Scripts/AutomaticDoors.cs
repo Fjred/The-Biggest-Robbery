@@ -9,12 +9,14 @@ public class AutomaticDoors : MonoBehaviour
     public AudioClip openSound;
     public AudioClip closeSound;
 
+    public StealItem player;
+
     [Range(0.0f, 1.0f)]
     public float volume = 1.0f;
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && player.hasCard0 == true)
         {
             doorAnim.ResetTrigger("Close");
             doorAnim.SetTrigger("Open");
@@ -25,7 +27,7 @@ public class AutomaticDoors : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && player.hasCard0 == true)
         {
             doorAnim.ResetTrigger("Open");
             doorAnim.SetTrigger("Close");
