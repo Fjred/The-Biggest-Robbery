@@ -12,18 +12,23 @@ public class Scanner : MonoBehaviour
 
     public GameObject blockade;
 
+    public bool vaultOpen = false;
+
     [Range(0.0f, 1.0f)]
     public float volume = 1.0f;
 
     void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && player.hasCard2 == true && Input.GetKeyDown(KeyCode.E))
+        if (other.CompareTag("Player") && player.hasCard2 == true && Input.GetKey(KeyCode.E) && vaultOpen == false)
         {
+            vaultOpen = true;
+
             blockade.SetActive(true);
 
             vaultDoorAnim.SetTrigger("Open");
-            //doorAudioSource.volume = volume;
-            //doorAudioSource.PlayOneShot(openVaultSound);
+            doorAudioSource.volume = volume;
+            doorAudioSource.PlayOneShot(openVaultSound);
+
         }
     }
 }
