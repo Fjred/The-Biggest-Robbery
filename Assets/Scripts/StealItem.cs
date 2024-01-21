@@ -16,6 +16,10 @@ public class StealItem : MonoBehaviour
 
     public AudioSource grabItem;
 
+    public bool StealedItem = false;
+
+    public Scanner vault;
+
     public bool hasCard0;
     public bool hasCard1;
     public bool hasCard2;
@@ -51,6 +55,8 @@ public class StealItem : MonoBehaviour
                     // Check if there are available slots to place the stolen item
                     if (stolenItemSprites.Count <= itemSlots.Count)
                     {
+                        StealedItem = true;
+
                         grabItem.Play();
 
                         itemSlots[stolenItemSprites.Count - 1].sprite = itemScript.image;

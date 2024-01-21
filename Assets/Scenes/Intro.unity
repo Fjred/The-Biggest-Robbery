@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 08f35bcfb53db5b4ea06e9021a54e3fe, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -1068,6 +1068,7 @@ GameObject:
   - component: {fileID: 1994734291}
   - component: {fileID: 1994734290}
   - component: {fileID: 1994734289}
+  - component: {fileID: 1994734293}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1162,3 +1163,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1994734293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994734288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f4acabf36b6034484d8743dbb66fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playButton: {fileID: 929931175}
+  infoButton: {fileID: 0}
+  exitButton: {fileID: 0}
+  backButton: {fileID: 0}
+  menuPanel: {fileID: 0}
+  informationPanel: {fileID: 0}

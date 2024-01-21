@@ -7,6 +7,7 @@ public class Scanner : MonoBehaviour
     public Animator vaultDoorAnim;
     public AudioSource doorAudioSource;
     public AudioClip openVaultSound;
+    public AudioClip closeVaultSound;
 
     public StealItem player;
 
@@ -16,6 +17,10 @@ public class Scanner : MonoBehaviour
 
     [Range(0.0f, 1.0f)]
     public float volume = 1.0f;
+
+    public bool doorShut = false;
+
+
 
     void OnTriggerStay(Collider other)
     {
@@ -29,6 +34,18 @@ public class Scanner : MonoBehaviour
             doorAudioSource.volume = volume;
             doorAudioSource.PlayOneShot(openVaultSound);
 
+        }
+        if (player.StealedItem == true && doorShut == false)
+        {
+            doorShut = true;
+
+            vaultDoorAnim.SetBool("ItemStolen", true);
+
+            blockade.SetActive(false);
+
+            vaultDoorAnim.SetTrigger("Open");
+            doorAudioSource.volume = volume;
+            doorAudioSource.PlayOneShot(closeVaultSound);
         }
     }
 }

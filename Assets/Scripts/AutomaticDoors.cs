@@ -16,7 +16,7 @@ public class AutomaticDoors : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && player.hasCard0 == true)
+        if ((other.CompareTag("Player") && player.hasCard0 == true) || other.CompareTag("Enemy"))
         {
             doorAnim.ResetTrigger("Close");
             doorAnim.SetTrigger("Open");
@@ -27,7 +27,7 @@ public class AutomaticDoors : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") && player.hasCard0 == true)
+        if ((other.CompareTag("Player") && player.hasCard0 == true) || other.CompareTag("Enemy"))
         {
             doorAnim.ResetTrigger("Open");
             doorAnim.SetTrigger("Close");
