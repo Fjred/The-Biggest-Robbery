@@ -8,6 +8,7 @@ TagManager:
   - Card
   - Penguin
   - Enemy
+  - RPG
   layers:
   - Default
   - TransparentFX

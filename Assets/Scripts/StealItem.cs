@@ -24,6 +24,8 @@ public class StealItem : MonoBehaviour
     public bool hasCard1;
     public bool hasCard2;
 
+    public GunfireController RPG;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -96,6 +98,11 @@ public class StealItem : MonoBehaviour
                     }
 
                 }
+            }
+
+            if (hit.collider.CompareTag("RPG") && RPG.rocketActivated == false)
+            {
+                RPG.FireWeapon();
             }
         }
     }
