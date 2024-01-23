@@ -7,7 +7,6 @@ public class StealItem : MonoBehaviour
 {
     public float distance = 2;
 
-    // List of Image components where stolen items will be placed
     public List<Image> itemSlots = new List<Image>();
 
     public ParticleSystem stealItem;
@@ -18,22 +17,37 @@ public class StealItem : MonoBehaviour
 
     public bool StealedItem = false;
 
-    public Scanner vault;
-
     public bool hasCard0;
     public bool hasCard1;
     public bool hasCard2;
 
     public GunfireController RPG;
 
+    public int money;
+
+    public Transform target;
+
+    public GameObject AK47;
+
+    public GameObject ammoText;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
             Steal();
+        }        
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            AK47.SetActive(true);
+            ammoText.SetActive(true);
         }
     }
 
+    public void EndGame()
+    {
+        transform.position = target.position;
+    }
     public void Steal()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -64,6 +78,10 @@ public class StealItem : MonoBehaviour
                         itemSlots[stolenItemSprites.Count - 1].sprite = itemScript.image;
 
                         ParticleSystem particleSystemInstance = Instantiate(stealItem, hit.point, Quaternion.Euler(-90f, 0f, 0f));
+
+                        var moneyAdded = Random.Range(10000, 50000);
+
+                        money += moneyAdded;
 
                     }
                     else

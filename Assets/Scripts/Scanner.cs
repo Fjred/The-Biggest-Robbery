@@ -11,6 +11,8 @@ public class Scanner : MonoBehaviour
 
     public StealItem player;
 
+    public GunfireController RPG;
+
     public GameObject blockade;
 
     public bool vaultOpen = false;
@@ -35,7 +37,7 @@ public class Scanner : MonoBehaviour
             doorAudioSource.PlayOneShot(openVaultSound);
 
         }
-        if (player.StealedItem == true && doorShut == false)
+        if (player.StealedItem == true && doorShut == false && RPG.rocketActivated == false)
         {
             doorShut = true;
 
@@ -43,7 +45,6 @@ public class Scanner : MonoBehaviour
 
             blockade.SetActive(false);
 
-            vaultDoorAnim.SetTrigger("Open");
             doorAudioSource.volume = volume;
             doorAudioSource.PlayOneShot(closeVaultSound);
         }

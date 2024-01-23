@@ -109,7 +109,7 @@ public class PenguinAI : MonoBehaviour
             yield return null;
         }
 
-        // Load the scene immediately after the camera rotation is complete
-        //SceneManager.LoadScene(2);
+
+        SceneManager.LoadScene(0);
     }
 }

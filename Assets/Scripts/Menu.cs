@@ -7,21 +7,16 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
     public Button playButton;
-    public Button infoButton;
-    public Button exitButton;
-    public Button backButton;
 
-    public GameObject menuPanel;
-    public GameObject informationPanel;
+    public Button exitButton;
 
     private void Start()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         playButton.onClick.AddListener(Play);
-        //exitButton.onClick.AddListener(Exit);
-        //infoButton.onClick.AddListener(Info);
-        //backButton.onClick.AddListener(Back);
+        exitButton.onClick.AddListener(Exit);
+
     }
 
     public void Play()
@@ -32,15 +27,5 @@ public class Menu : MonoBehaviour
     public void Exit()
     {
         Application.Quit();
-    }
-    public void Info()
-    {
-        menuPanel.SetActive(false);
-        informationPanel.SetActive(true);
-    }
-    public void Back()
-    {
-        menuPanel.SetActive(true);
-        informationPanel.SetActive(false);
     }
 }
