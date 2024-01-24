@@ -57,18 +57,14 @@ public class StealItem : MonoBehaviour
         {
             if (hit.collider.CompareTag("Item"))
             {
-                // Destroy the GameObject that was hit
                 Destroy(hit.collider.gameObject);
 
-                // Get the Item script from the stolen item
                 Item itemScript = hit.collider.GetComponent<Item>();
 
                 if (itemScript != null && itemScript.image != null)
                 {
-                    // Add the stolen item's sprite to the list
                     stolenItemSprites.Add(itemScript.image);
 
-                    // Check if there are available slots to place the stolen item
                     if (stolenItemSprites.Count <= itemSlots.Count)
                     {
                         StealedItem = true;

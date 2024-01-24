@@ -13,7 +13,6 @@ public class PenguinAI : MonoBehaviour
     public Camera cameraToRotate;
 
     public Animator animator;
-    //public Gun gun;
 
     private Transform player;
     private Vector3 wanderPoint;
@@ -84,7 +83,6 @@ public class PenguinAI : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && !isCameraRotating)
         {
-            // gun.ammo = 0;
 
             isCameraRotating = true;
             StartCoroutine(RotateCameraTowardsEnemy());
